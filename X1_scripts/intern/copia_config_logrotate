@@ -1,0 +1,13 @@
+/var/log/remots/*/????-??-?? {
+	daily
+	rotate 182
+	dateext 
+	dateformat .log
+	compress
+	missingok
+	ifempty
+	postrotate
+		/home/milax/intern/delete_old_f.sh
+	endscript
+}
+

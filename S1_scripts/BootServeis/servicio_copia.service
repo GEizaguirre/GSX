@@ -1,0 +1,21 @@
+# 
+# Nombre: servicio_copia.service
+#
+# Autores: Bernat Boscá, Albert Canellas y German Telmo Eizaguirre
+#
+# 3-03-2019 V 1.0
+#
+# Descripción:
+# Servicio en formato systemd para ejecutar el script copia_seguridad.sh
+# al apagarse (shutdown y poweroff) en un sistema Linux.
+
+[Unit]
+Description= Servicio para la activación del proceso de copia de seguridad.
+
+[Service]
+Type=oneshot
+RemainAfterExit=true
+ExecStop=/bin/bash /usr/bin/copia_seguridad.sh
+
+[Install]
+WantedBy=multi-user.target

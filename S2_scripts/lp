@@ -1,0 +1,51 @@
+#! /bin/bash
+# lp
+#
+# Autores: Bernat Boscá, German Telmo Eizaguirre, Albert Canellas
+# 9-05-2019 Versión 1.0
+#
+#
+# Descripción:
+# Script que implementa el lp, si la opción virtualImpre no se encuentra
+# como argumento delega la llamada al comando lp original. 
+# Si se encuentra la opción pide la contraseña del usuario y verifica
+# que el usuario se encuentra en/usr/local/secret.
+#
+# Argumentos:
+# No hay.
+#
+# Opciones:
+# No hay.
+#
+
+UBICACION=$(whereis lp | cut -d ' ' -f2)
+
+if [ "$(echo -e "$*" | grep -e "virtualImpre")" == "" ]; then #si no se encuentran estas opciones
+	$UBICACION $* #le pasamos la ubicacion de la comanda original
+else #si encuentra las opciones (és el nuestro)
+	#Comprovamos si existen los directorios
+	if [ ! -f "/usr/local/secret" ]; then #el fichero con la info de los usuario no existe
+		echo -e "\nError, el ficher con las credenciales no existe"
+		exit 1
+	else #el fichero de credenciales existe
+		read -p "Introduce el nombre de usuario" usuario
+		CREDENCIALES=$(more /usr/local/secret | openssl enc -aes-128-cbc -a -d -salt -pass pass:GsX2O19 | grep -E "$usuario")
+		if [ -z "$CREDENCIALES" ]; then #no esta registrado
+			echo -e "\nError, no estas registrado"
+			exit 2
+		else #esta registrado
+			read -p "Introdueix la contraseña" CONTRA
+			CONTRA_REAL=$(echo $CREDENCIALES | cut -d ';' -f2)
+			if [ "$CONTRA_REAL" == "$CONTRA" ]; then #si son la misma ejecutamos la comanda
+				$UBICACION $*  #ubicacion 
+			else #si no son la misma
+				echo -e "\nEl password no es correcto"
+			fi
+		fi
+	fi
+fi
+
+exit 0
+
+
+

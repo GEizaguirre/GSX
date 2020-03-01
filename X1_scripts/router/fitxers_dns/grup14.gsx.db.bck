@@ -1,0 +1,12 @@
+; file "grup14.gsx.db"
+$TTL	604800
+@		IN	SOA	ns.grup14.gsx.	root.ns.grup14.gsx.	(
+					1			; Serial
+					604800		; Refresh
+					86400		; Retry
+					2419200		; Expire
+					604800 )	; Negative Cache TTL
+; cambiar a IP del router con script
+@		IN	NS	ns.grup14.gsx.
+ns		IN	A	ISP_B1.ISP_B2.ISP_B3.ISP_B4
+www		IN	A	ISP_B1.ISP_B2.ISP_B3.ISP_B4

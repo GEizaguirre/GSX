@@ -1,0 +1,7 @@
+12345678-A,Juan,Perez,Oteiza,123456789,programmers,progsA
+87654321-C,Maria,Márquez,Sánchez,242424242,leadership,external_commerce,group_management
+56781234-X,Izaskun,Córdoba,Galera,627776554,programmers
+22222222-X,Gabriela,González,González,666666666,leadership,group_management
+13571357-D,Eulàlia,Sants,Vall-Llovera,246808642,leadership
+65784623-A,Juan,Perez,Oteiza,345345345,programmers,progsB,external_commerce
+56781234-X,Gabriel,Benito,Marin,777888444,progsA

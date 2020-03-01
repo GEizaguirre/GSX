@@ -1,0 +1,22 @@
+; file "lab14.int.db"
+$TTL	604800
+@		IN	SOA	ns.lab14.int.	root.ns.lab14.int.	(
+					1			; Serial
+					604800		; Refresh
+					86400		; Retry
+					2419200		; Expire
+					604800	)	; Negative Cache TTL
+;
+@		IN	NS	ns.lab14.int.
+ns		IN	A	172.16.4.1
+
+; PCs
+admin	IN 	A 	172.16.4.2
+router	IN	A	172.16.4.1
+PC1		IN	A	172.16.4.2
+PC2		IN	A	172.16.4.3
+PC3		IN	A	172.16.4.4
+www		IN	A	198.18.14.19
+
+; 
+

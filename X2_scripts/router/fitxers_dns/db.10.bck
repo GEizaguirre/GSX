@@ -1,0 +1,12 @@
+; file "db.10"
+$TTL	604800
+@		IN	SOA	ns.grup14.gsx.	root.ns.grup14.gsx.	(
+					2			; Serial
+					604800		; Refresh
+					86400		; Retry
+					2419200		; Expire
+					604800	)	; Negative Cache TTL
+;
+@					IN	NS	ns.grup14.gsx.
+ISP_B4		IN	PTR	ns.grup14.gsx.
+ISP_B4		IN	PTR www.grup14.gsx.

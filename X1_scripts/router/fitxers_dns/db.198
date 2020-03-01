@@ -1,0 +1,18 @@
+; file "db.198"
+$TTL	604800
+@		IN	SOA	ns.14.dmz.	root.ns.14.dmz.	(
+				2			; Serial
+				604800		; Refresh
+				86400		; Retry
+				2419200		; Expire
+				604800 )	; Negative Cache TTL
+;
+@		IN	NS	ns.14.dmz.
+17		IN	PTR	ns.14.dmz.
+17		IN	PTR	dhcp.14.dmz.
+17		IN	PTR	router.14.dmz.
+19		IN	PTR	www.14.dmz.
+20		IN	PTR	correu.14.dmz.
+20		IN	PTR	smtp.14.dmz.
+20		IN	PTR	pop3.14.dmz.
+19		IN	PTR	www.lab14.int.

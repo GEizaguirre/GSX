@@ -1,0 +1,48 @@
+// file: /etc/bind/named.conf.local1
+#Options {
+#	directory "/var/cache/bind";
+#	allow-query-cache { none; };
+#	allow-query { any; };
+#	recursion no;
+#};
+
+# Forward INTRANET
+zone "lab14.int" {
+	type master;
+	file "lab14.int.db";
+};
+
+# Reverse INTRANET
+# Usa IPs de clase B, por lo tanto 2 bytes de máscara.
+zone "16.172.in-addr.arpa" {
+	type master;
+	file "db.172";
+	notify no;
+};
+
+# Forward DMZ
+zone "14.dmz" {
+	type master;
+	file "14.dmz.db";
+};
+
+# Reverse DMZ
+# Usa IPs de clase C, por lo tanto 3 bytes de máscara.
+zone "14.18.198.in-addr.arpa" {
+	type master;
+	file "db.198";
+	notify no;
+};
+
+# Forward Externa
+zone "grup14.gsx" {
+	type master;
+	file "grup14.gsx.db";
+};
+
+
+# Reverse Externa
+zone "ISP_B3.ISP_B2.ISP_B1.in-addr.arpa" {
+	type master;
+	file "db.10";
+};
